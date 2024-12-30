@@ -6,7 +6,26 @@
 body {
   font: 'inter', sans-serif;
   font-optical-sizing: auto;
-  
+}
+
+body::-webkit-scrollbar {
+  height: 50px !important;
+  width: 10px;
+  background: #141414d3;
+} 
+
+body::-webkit-scrollbar-thumb {
+  background-color: #01223fd8;
+  border-radius: 5px;  /* Rounded edges for the thumb */
+} 
+
+body::-webkit-scrollbar-track {
+  background-color: #1a202c;
+}
+
+/* Optional: Adjust the gutter */
+body::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
 html {

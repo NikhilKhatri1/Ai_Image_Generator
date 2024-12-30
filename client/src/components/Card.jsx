@@ -10,7 +10,7 @@ const Card = ({ _id, name, prompt, photo }) => (
             src={photo}
             alt={prompt}
         />
-        <div className="group-hover:flex flex-col max-h-[90.5%] hidden absolute bottom-0 left-0 right-0 bg-gray-800/60 ring-inset ring-2 ring-gray-800/5 backdrop-blur-[2px] m-2 p-4 rounded-md">
+        <div className="group-hover:flex flex-col max-h-[90.5%] hidden absolute bottom-0 left-0 right-0 bg-gray-800/60 ring-inset ring-2 ring-gray-800/5 m-2 p-4 rounded-md">
             <p className="overflow-y-auto text-sm text-white prompt">{prompt}</p>
 
             <div className="flex items-center justify-between gap-2 mt-5">
