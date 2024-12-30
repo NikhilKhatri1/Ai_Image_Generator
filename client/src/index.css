@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font: 'inter', sans-serif;
+  font-optical-sizing: auto;
+  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+@media screen and (min-width: 480px) {
+  .card:nth-child(7n + 1) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
+}
+
+.prompt::-webkit-scrollbar {
+  width: 5px;
+}
+
+.prompt::-webkit-scrollbar-thumb {
+  background-color: #666e75;
+  border-radius: 5px;
+}
+
+
+.radial-gradient{
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(197, 23, 96, 0.397) 0%,
+    transparent 60%
+  ),rgba(12, 12, 12, 0.692);
+}
+
+.radial-gradient-1{
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(243, 221, 221, 0.053) 0%,
+    transparent 60%
+  ),rgba(12, 12, 12, 0.692);
+}
+
+.linear-mask{
+  mask-image: linear-gradient(
+    -75deg,
+    rgb(228, 20, 158) calc(var(--x) + 20%),
+    transparent calc(var(--x) + 30%),
+    rgb(201, 9, 9) calc(var(--x) + 100%)
+  );
+  -webkit-mask-image:linear-gradient(
+    -75deg,
+    rgb(228, 20, 158) calc(var(--x) + 20%),
+    transparent calc(var(--x) + 30%),
+    rgb(201, 9, 9) calc(var(--x) + 100%)
+  )
+}
+
+.linear-overlay{
+  background-image: linear-gradient(
+    -75deg,
+    rgba(76, 3, 82, 0.664) calc(var(--x) + 20%),
+    rgba(158, 5, 107, 0.651) calc(var(--x) + 65%),
+    rgba(10, 10, 10, 0.13) calc(var(--x) + 100%)
+  );
+  mask:
+    linear-gradient(black,black) content-box,
+    linear-gradient(black,black);
+    -webkit-mask:
+    linear-gradient(black,black) content-box,
+    linear-gradient(black,black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+.linear-overlay-1{
+  background-image: linear-gradient(
+    -75deg,
+    rgba(110, 2, 22, 0.24) calc(var(--x) + 20%),
+    rgba(241, 21, 168, 0.527) calc(var(--x) + 65%),
+    rgba(44, 26, 44, 0.473) calc(var(--x) + 100%)
+  );
+  mask:
+    linear-gradient(black,black) content-box,
+    linear-gradient(black,black);
+    -webkit-mask:
+    linear-gradient(black,black) content-box,
+    linear-gradient(black,black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+
+.navbar {
+  @apply flex justify-between items-center py-4 px-6 bg-gray-300/20 rounded-2xl shadow-sm inset-1 mb-5 sticky top-0 z-50 blur-0 backdrop-filter md:visible ring-inset ring-8 ring-gray-300/0 opacity-[96%] backdrop-blur-[15px]
+}
+
+
+.main {
+  @apply sm:p-8 px-4 py-8 w-full  bg-gray-300/20 min-h-[calc(100vh-73px)] rounded-lg ring-8 ring-gray-300/0 ring-inset backdrop-blur-[15px] 
+}
