@@ -1,12 +1,27 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import { logo } from './assets';
 import { Home, CreatePost } from './pages';
-import { motion, useMotionTemplate } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
+import { Stars } from '@react-three/drei';
+import {Canvas} from '@react-three/fiber';
 
 
+const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 export default function App() {
-  const backgroundImage = useMotionTemplate`radial-gradient(50% 50% at 50% 50%,#DD335C  1%, #020617)`;
+  const color = useMotionValue(COLORS[0]);
+  const backgroundImage = useMotionTemplate`radial-gradient(50% 50% at 50% 50%,${color}  1%, #020617)`;
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0 0 4px ${color}`;
+  useEffect(() => {
+    animate(color, COLORS, {
+      duration: 10,
+      repeat: Infinity,
+      repeatType: 'mirror',
+      ease: 'easeInOut'
+    })
+  })
+
   return (
     <motion.section style={{ backgroundImage }} className="box-content p-2">
       <BrowserRouter>
@@ -20,6 +35,7 @@ export default function App() {
               className="relative px-6 py-2 rounded-xl radial-gradient"
               initial={{ "--x": "100%", scale: 1 }}
               animate={{ "--x": "-100%" }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.85 }}
               transition={{
                 repeat: Infinity,
@@ -56,6 +72,11 @@ export default function App() {
             <Route path="/create-post" element={<CreatePost />} />
           </Routes>
         </main>
+        <div className="absolute inset-0 z-0 h-[100%] top-20">
+          <Canvas>
+            <Stars radius={100} depth={10} count={5000} factor={2} saturation={0} fade speed={1} />
+          </Canvas>
+        </div>
       </BrowserRouter>
     </motion.section>
   )
