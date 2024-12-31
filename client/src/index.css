@@ -126,5 +126,5 @@ html {
 
 
 .main {
-  @apply sm:p-8 px-4 py-8 w-full  bg-gray-300/20 min-h-[calc(100vh-73px)] rounded-lg ring-8 ring-gray-300/0 ring-inset backdrop-blur-[15px] 
+  @apply relative sm:p-8 px-4 py-8 w-full  bg-gray-800/80 min-h-[calc(100vh-73px)] rounded-lg ring-4 ring-gray-800/15 ring-inset backdrop-blur-[1px] blur-0 opacity-[90%] backdrop-filter md:visible z-[1]
 }
